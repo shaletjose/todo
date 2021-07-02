@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>activity</title>
+</head>
+<body>
+<!--<div class="container-fluid">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--            <div class="banner" >-->
+<!--                <div class="banner-text" >-->
+<!--                    <h1>TODO-LIST</h1>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+<center>
+    <form method="post" class="shadow p-3 mb-5 bg-white rounded">
+        {% csrf_token %}
+        <table>
+            <div class="form-group">
+                <tr><h1>ADD-TODO</h1></tr>
+            <tr>
+                <td><label >Activity</label></td>
+                <td><input type="text" name="activity" class="form-control"></td>
+            </tr>
+            </div>
+             <div class="form-group">
+            <tr>
+                <td>Priority</td>
+                <td><input type="text" name="priority" class="form-control"></td>
+            </tr>
+             </div>
+            <div class="form-group">
+            <tr>
+                <td>Date</td>
+                <td><input type="date" name="date" class="form-control"></td>
+            </tr>
+             </div>
+            <tr>
+                <td> </td>
+            </tr>
+            <tr>
+                <td> </td>
+            </tr>
+            <tr>
+                <td> </td>
+            </tr>
+            <tr>
+                <td> </td>
+
+                <td><input type="submit" value="ADD" class="btn btn-success"></td>
+            </tr>
+        </table>
+
+    </form>
+</center>
+        </div>
+        <div class="col-md-6">
+            <h1>Task to be completed</h1>
+            {% for i in todolist %}
+            <div class="shadow p-3 mb-5 bg-white rounded card">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.activity_name}}</h5>
+                    <p><b>{{i.priority}}</b></p>
+                    <p><b>{{i.date1}}</b></p>
+                    <a class="btn btn-warning" href="{% url 'delete' i.id %}">Done</a>
+                    <a class="btn btn-danger" href="{% url 'update' i.id %}">UPDATE</a>
+
+                </div>
+
+            </div><br>
+         {% endfor %}
+        </div>
+        </div>
+    </div>
+<!--{% for i in todolist %}-->
+<!--<p>{{i.activity_name}}&#45;&#45;{{i.priority}}</p>-->
+<!--{% endfor %}-->
+<!--<div class="shadow-none p-3 mb-5 bg-light rounded">No shadow</div>-->
+<!--<div class="shadow-sm p-3 mb-5 bg-white rounded">Small shadow</div>-->
+<!--<div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div>-->
+<!--<div class="shadow-lg p-3 mb-5 bg-black rounded">Larger shadow</div>-->
+</body>
+</html>
+{% endblock %}

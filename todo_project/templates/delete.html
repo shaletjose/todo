@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><form method="post">
+    {% csrf_token %}
+    <p style="color:darkslateblue">Are you sure this task is done?</p>
+    <input type="submit" class="btn btn-danger">
+
+</form></center>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><form method="POST">
+    {% csrf_token %}
+   <center><h1>Update ToDo</h1></center>
+     <table>
+        <tr>
+            <td><label>Task</label></td>
+            <td> {{form.activity_name}}</td>
+        </tr>
+        <tr>
+            <td><label>Priority</label></td>
+            <td> {{form.priority}}</td>
+        </tr>
+        <tr>
+            <td><label>Date</label></td>
+            <td> {{form.date1}}</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+         <tr>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td><br>
+            <td><input type="submit" value="UPDATE" class="btn btn-success"></td>
+        </tr>
+    </table>
+
+</form></center>
+</body>
+</html>
+{% endblock %}
